@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+<title>AdminLTE 3 | 관리자 화면</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+</head>
+
+<body class="hold-transition sidebar-mini">
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<nav
+			class="main-header navbar navbar-expand navbar-white navbar-light">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
+					href="#" role="button"><i class="fas fa-bars"></i></a></li>
+			</ul>
+
+			<!-- Right navbar links -->
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link"
+					data-widget="control-sidebar" data-slide="true" href="#"
+					role="button"><i class="fas fa-th-large"></i></a></li>
+			</ul>
+		</nav>
+		<!-- /.Navbar -->
+
+		<!-- Main Sidebar Container -->
+		<aside class="main-sidebar sidebar-dark-primary elevation-4">
+			<!-- Brand Logo -->
+			<a href="index3.html" class="brand-link"> <img
+				src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+				class="brand-image img-circle elevation-3" style="opacity: .8">
+				<span class="brand-text font-weight-light">Admin PROJECT</span>
+			</a>
+
+			<!-- Sidebar -->
+			<div class="sidebar">
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+					<div class="image">
+						<img src="dist/img/user2-160x160.jpg"
+							class="img-circle elevation-2" alt="User Image">
+					</div>
+					<div class="info">
+						<a href="#" class="d-block">User 02 <span
+							class="right badge badge-danger">online</span>
+						</a>
+
+					</div>
+				</div>
+				<!-- SEARCH FORM -->
+				<form class="form-inline ml-3">
+					<div class="input-group input-group-sm">
+						<input class="form-control form-control-navbar" type="search"
+							placeholder="Search" aria-label="Search">
+						<div class="input-group-append">
+							<button class="btn btn-navbar" type="submit">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+
+				<!-- Sidebar Menu -->
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column"
+						data-widget="treeview" role="menu" data-accordion="false">
+						<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+						<li class="nav-item has-treeview menu-open"><a href="#"
+							class="nav-link active">
+								<p>MAIN NAVIGATION</p>
+						</a>
+
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#" class="nav-link">
+										<p>
+											사용자 홈 <i class="right fas fa-angle-left"></i>
+										</p>
+								</a></li>
+							</ul></li>
+
+						<li class="nav-item has-treeview menu-open"><a href="#"
+							class="nav-link active"> <i
+								class="nav-icon fas fa-tachometer-alt"></i>
+								<p>
+									Dash Board <i class="right fas fa-angle-left"></i>
+								</p>
+						</a>
+
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><a href="#" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>관리자 관리</p>
+								</a></li>
+								<li class="nav-item"><a href="#" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>게시물 관리</p>
+								</a></li>
+							</ul></li>
+
+					</ul>
+				</nav>
+				<!-- /.sidebar-menu -->
+			</div>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<div class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark">DashBoard Management</h1>
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Starter Page</li>
+							</ol>
+
+
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content-header -->
+
+			<!-- Main content -->
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<!-- /.col-md-6 -->
+						<div class="col-lg-6" style="max-width: 100%; flex: none;">
+							<div class="card card-primary card-outline">
+								<div class="card-header">
+									<h5 class="m-0">게시판 검색</h5>
+								</div>
+								<div class="card-body">
+
+									<!-- SEARCH FORM -->
+								<form class="form-inline ml-3">
+										<select class="form-control">
+											<option>---</option>
+											<option>option 2</option>
+											<option>option 3</option>
+											<option>option 4</option>
+											<option>option 5</option>
+										</select>
+										<input type="text" class="form-control" placeholder="">
+										<button type="button" style="border-color: #9F9E9B;"
+											class="btn btn-light">검색</button>
+										<button type="button" style="border-color: #9F9E9B;"
+											class="btn btn-light">새글쓰기</button>
+									</form>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-header">
+											<h3 class="card-title">전체 목록</h3>
+											
+										</div>
+										<!-- /.card-header -->
+										<div class="card-body table-responsive p-0">
+											<table class="table table-hover text-nowrap">
+												<thead>
+													<tr>
+														<th>Bno</th>
+														<th>Title</th>
+														<th>Writer</th>
+														<th>Regdate</th>
+														<th>Viewcnt</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>183</td>
+														<td><a href="#">홈페이지 오픈 테스트 [0]</a></td>
+														<td>kkk</td>
+														<td><span class="tag tag-success">2020-06-22</span></td>
+														<td><span class="badge bg-danger">1</span></td>
+													</tr>
+													<tr>
+														<td>219</td>
+														<td><a href="#">새로운 글을 넣습니다 [0]</a></td>
+														<td>user02</td>
+														<td><span class="tag tag-warning">2020-06-22</span></td>
+														<td><span class="badge bg-danger">0</span></td>
+													</tr>
+													<tr>
+														<td>220</td>
+														<td><a href="#">새로운 글을 넣습니다 [0]</a></td>
+														<td>user02</td>
+														<td><span class="tag tag-warning">2020-06-22</span></td>
+														<td><span class="badge bg-danger">0</span></td>
+													</tr>
+													<tr>
+														<td>222</td>
+														<td><a href="#">새로운 글을 넣습니다 [0]</a></td>
+														<td>user02</td>
+														<td><span class="tag tag-warning">2020-06-22</span></td>
+														<td><span class="badge bg-danger">0</span></td>
+													</tr>
+													<tr>
+														<td>215</td>
+														<td><a href="#">새로운 글을 넣습니다 [0]</a></td>
+														<td>user02</td>
+														<td><span class="tag tag-warning">2020-06-22</span></td>
+														<td><span class="badge bg-danger">1</span></td>
+													</tr>
+												</tbody>
+											</table>
+											<div class="card-footer clearfix">
+											<button type="button" class="btn btn-outline-primary">Create</button>
+												<ul class="pagination pagination-sm m-0 float-right">
+													<li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+													<li class="page-item"><a class="page-link" href="#">1</a></li>
+													<li class="page-item"><a class="page-link" href="#">2</a></li>
+													<li class="page-item"><a class="page-link" href="#">3</a></li>
+													<li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- /.card-body -->
+									</div>
+									<!-- /.card -->
+								</div>
+							</div>
+							<!-- /.row -->
+
+						</div>
+						<!-- /.col-lg-6 -->
+					</div>
+					<!-- /.row -->
+
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+	
+	
+	<!-- Control Sidebar -->
+	<aside class="control-sidebar control-sidebar-dark">
+		<!-- Control sidebar content goes here -->
+		<div class="p-3">
+			<h5>Title</h5>
+			<p>Sidebar content</p>
+			<button type="button" class="btn btn-primary btn-lg">로그아웃</button>
+		</div>
+	</aside>
+	<!-- /.control-sidebar -->
+
+	<!-- Main Footer -->
+	<footer class="main-footer">
+		<!-- To the right -->
+		<div class="float-right d-none d-sm-inline">Anything you want</div>
+		<!-- Default to the left -->
+		<strong>Copyright &copy; 2014-2020 <a
+			href="https://adminlte.io">AdminLTE.io</a>.
+		</strong> All rights reserved.
+	</footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- REQUIRED SCRIPTS -->
+
+	<!-- jQuery -->
+	<script src="plugins/jquery/jquery.min.js"></script>
+	
+	<!-- Bootstrap 4 -->
+	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="dist/js/adminlte.min.js"></script>
+	
+	<script>
+	//===고전적 자바스크립트
+	function myFunc() { //형식 -> function 함수이름() { }
+		alert('테스트');
+	}
+	myFunc(); //함수호출(콜) == 실행
+	
+	//===JQuery 자바스크립트
+	$(document).ready(function(){//함수명 없이 실행 == 콜백함수.
+	alert('테스트2');
+	//even - 짝수 , odd - 홀수
+	$(".even_table tbody tr:even").css({"background-color":"black","color":"white"});
+	var cnt = 131;
+	$(".btn-primary").bind("click",function(event){
+		$(".even_table tbody tr").each(function(index, item){
+			$(item).addClass("kim_" + index); //class="hong_0", "hong_1"
+		})
+		//$("<tr><td>"+cnt+"</td><td>한줄추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo("table");
+		//cnt = cnt + 1;
+	});
+	//$("table thead tr").css({"background-color":"red"});
+	//$("#searchType").css({"width":"150px"});//제이쿼리 JS
+	//document.getElementById("searchType").style.width="200px";//오리지널 JS
+	//$(".btn-primary").css({"background-color":"red"});
+	//$("tr").css("background-color","red");
+	//$("tr").css({"background-color":"red","color":"blue"});
+});
+	</script>
+	
+</body>
+</html>

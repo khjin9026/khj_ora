@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* 모바일 */
+/* 모바일_HOME CSS */
+.slider img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.header .gnb li a {
+	margin-top: 0px !important;
+}
+
+/* 모바일_we are CSS */
+.display-section {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.display-section .sec-tit {
+	margin-bottom: 30px;
+}
+
+.display-section .desc {
+	font-family: "돋움체";
+	color: #616161;
+	line-height: 1.9;
+}
+
+/* 모바일_we are_내용 CSS */
+.promotion-section {
+	margin-top: 68px;
+}
+
+.promotion-section .promo-list li {
+	margin-top: 52px;
+	text-align: center;
+}
+
+.promotion-section .promo-list li:first-child {
+	margin-top: 0px;
+}
+
+.promotion-section .promo-list li img {
+	width: 200px;
+	height: 180px;
+}
+
+.promotion-section .promo-list li h3 {
+	margin: 29px 0 20px 0;
+	font-size: 15px;
+	color: #3f51b5;
+	font-weight: bold;
+}
+
+.promotion-section .promo-list li p {
+	font-size: 12px;
+	font-family: "궁서";
+	color: #616161;
+	line-height: 1.5;
+}
+
+/* 모바일_WORK CSS */
+.work-section {
+	margin-top: 73px;
+}
+
+.work-section .sec-tit {
+	width: 90%;
+	max-width: 1132px;
+	margin: 0 auto;
+	margin-bottom: 47px;
+	text-align: center;
+}
+
+.work-section .work-list li {
+	width: 100%;
+}
+
+.work-section .work-list li a {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.work-section .work-list li a:before {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: #3f51b5;
+	content: "";
+	opacity: 0;
+	transiton: all 0.2s;
+}
+
+.work-section .work-list li a:hover:before {
+	opacity: 0.5;
+}
+
+.work-section .work-list li .info {
+	position: absolute;
+	top: 0;
+	left: 23px;
+	z-index: 20;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.work-section .work-list li a:hover .info {
+	transform: translateY(23px);
+	opacity: 1;
+}
+
+.work-section .work-list li .info h3 {
+	margin-bottom: 8px;
+	font-size: 23px;
+	color: #fff;
+	font-weight: normal;
+}
+
+.work-section .work-list li .info span {
+	font-size: 11px;
+	color: #fff;
+}
+
+.work-section .work-list li img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* 모바일_blog CSS */
+.blog-section {
+	margin-top: 77px;
+}
+
+.blog-section .sec-tit {
+	margin-bottom: 47px;
+	text-align: center;
+}
+
+.blog-section .blog-list li {
+	width: 100%;
+	margin-top: 45px;
+}
+
+.blog-section .blog-list li:first-child {
+	margin-top: 0;
+}
+
+.blog-section .blog-list li img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.blog-section .blog-list li time {
+	display: block;
+	margin: 11px 0 5px 0;
+	font-size: 11px;
+	color: #9e9e9e;
+}
+
+.blog-section .blog-list li h3 {
+	color: #424242;
+	font-weight: normal;
+	line-height: 1.6;
+}
+
+/* 모바일_contact us CSS */
+.contact-section {
+	margin-top: 50px;
+}
+
+.contact-section .sec-tit {
+	margin-bottom: 47px;
+	text-align: center;
+}
+
+.contact-section .form-box .form input {
+	width: 100%;
+	background: transparent;
+	line-height: 1.2;
+	padding: 0 2px;
+	height: 50px;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #dbdbdb;
+}
+
+.blind { /* 라벨 태그 숨기기 */
+	position: absolute;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.contact-section .form-box .textarea textarea {
+	width: 100%;
+	background: transparent;
+	line-height: 1.2;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #dbdbdb;
+	min-height: 150px;
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+
+.contact-section .form-box .send-btn {
+	margin-top: 36px;
+	text-align: right;
+}
+
+.contact-section .form-box .send-btn button {
+	padding: 15px;
+	margin: 0;
+	border: 0;
+	font-size: 12px;
+	color: #fff;
+	background: #3f51b5;
+	font-family: "궁서";
+	cursor: pointer;
+}
+
+/* 태블릿 */
+/* 태블릿_WE ARE CSS */
+@media all and (min-width:768px) {
+	.display-section {
+		margin-top: 95px;
+	}
+	/* 태블릿_WE ARE_내용 CSS */
+	.promotion-section {
+		margin-top: 110px;
+	}
+	.promotion-section .promo-list li {
+		float: left;
+		width: 23.046875%;
+		/* 177px ÷ 768px*/
+		margin-left: 2.604166666666667%;
+		/* 20px ÷ 768px*/
+		margin-top: 0;
+	}
+	.promotion-section .promo-list li img {
+		height: 133px;
+	}
+	.promotion-section .promo-list li:first-child {
+		margin-left: 0;
+	}
+
+	/* 태블릿_work css */
+	.work-section {
+		margin-top: 118px;
+	}
+	.work-section .sec-tit {
+		margin-bottom: 76px;
+	}
+	.work-section .work-list li {
+		float: left;
+		width: 50%;
+	}
+	.work-section .work-list li . info {
+		left: 37px;
+	}
+	.work-section .work-list li a:hover .info {
+		transform: translateY(20px);
+	}
+
+	/* 태블릿_blog css */
+	.blog-section {
+		margin-top: 124px;
+	}
+	.blog-section .sec-tit {
+		margin-bottom: 76px;
+	}
+	.blog-section .blog-list li {
+		float: left;
+		width: 31.59722222222222%;
+		/* 242.6666666666667px ÷ 768px*/
+		margin-left: 2.604166666666667%;
+		/* 20px ÷ 768px*/
+		margin-top: 0;
+	}
+	.blog-section .blog-list li:first-child {
+		margin-left: 0;
+	}
+
+	/* 태블릿_contact us css */
+	.contact-section {
+		margin-top: 176px;
+	}
+	.contact-section .sec-tit {
+		margin-bottom: 76px;
+	}
+	.contact-section .form-box .form, .contact-section .form-box .textarea {
+		float: left;
+		width: 48.6979166666666667%;
+		/* 374px ÷ 768px */
+	}
+	contact-section .form-box .form {
+		margin-right: 2.604166666666667%;
+		/* 20px ÷ 768px */
+	}
+	.contact-section .form-box .form input:last-child {
+		margin-bottom: 0;
+	}
+
+	/* 태블릿_footer css */
+	.footer iframe {
+		height: 432px;
+	}
+	.footer p {
+		margin: 20px 0;
+	}
+}
+
+/* PC */
+/* PC_ WE ARE css */
+@media all and (min-width:1132px) {
+	.display-section {
+		text-align: left;
+	}
+	.display-section .sec-tit {
+		float: left;
+		margin-bottom: 0;
+	}
+	.display-section .desc {
+		position: relative;
+		float: right;
+		padding-left: 20px;
+		font-family: "굴림";
+		color: #616161;
+		line-height: 1.9;
+	}
+	.display-section .desc:before {
+		display: block;
+		position: absolute;
+		top: 9px;
+		left: 0;
+		width: 2px;
+		height: 44px;
+		background: #e0e0e0;
+		content: "";
+	}
+	/*PC WE are_내용 CSS */
+	.promotion-section .promo-list li {
+		width: 23.67491166077739%;
+		margin-left: 1.76688445229682%;
+	}
+
+	/* PC_work css */
+	.work-section .sec-tit {
+		text-align: left;
+	}
+	.work-section .work-list li {
+		width: 25%;
+	}
+
+	/* PC_BLOG css */
+	.blog-section .sec-tit {
+		float: left;
+		margin-bottom: 0;
+	}
+	.blog-section .blog-list {
+		float: right;
+		width: 74.5583038869258%;
+	}
+	.blog-section .blog-list li {
+		width: 31.75355450236967%;
+		margin-left: 2.369668246445498%;
+	}
+
+	/* PC_contact us css */
+	.contact-section .sec-tit {
+		float: left;
+		margin-bottom: 0;
+	}
+	.contact-section .form-box {
+		float: right;
+		width: 74.5583038869258%;
+	}
+	.contact-section .form-box .form, .contact-section .form-box .textarea {
+		width: 48.81516587677725%;
+	}
+	.contact-section .form-box .form {
+		margin-right: 2.369668246445498%;
+	}
+}

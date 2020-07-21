@@ -1,0 +1,2 @@
+2020-07-08 12:28:28,642  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Shutting down embedded database: url='jdbc:hsqldb:mem:dataSource'
+2020-07-08 12:28:28,642 DEBUG [org.springframework.jdbc.datasource.SimpleDriverDataSource] Creating new JDBC Driver Connection to [jdbc:hsqldb:mem:dataSource]
