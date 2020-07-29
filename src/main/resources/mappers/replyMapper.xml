@@ -16,14 +16,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="org.edu.dao.IF_ReplyDAO">
    <select id="selectReply" resultType="org.edu.vo.ReplyVO">
-      select * from tbl_reply where bno=#{bno}
-      order by regdate desc
-      limit #{pageVO.startNo}, #{pageVO.perPageNum};
+      <![CDATA[
+      SELECT T_Z. *
+		FROM
+		(
+		SELECT ROWNUM AS RNUM, T_A.*
+		    FROM
+		        (SELECT * FROM TBL_REPLY
+		        WHERE
+		        bno = #{bno}
+		        ORDER BY regdate DESC) T_A
+		    WHERE ROWNUM <= (#{pageVO.startNo}/#{pageVO.perPageNum}+1) * #{pageVO.perPageNum}
+		    ) T_Z
+		WHERE
+    		T_Z.RNUM > (#{pageVO.startNo}/#{pageVO.perPageNum}) * #{pageVO.perPageNum};
+   ]]>
    </select>
    <select id ="countRno" resultType="int">
       select count(*) from tbl_reply where bno = #{bno}
    </select>
+   <!-- Auto Increment 기능 대체 오라클용 시퀸스 사용 추가 SEQ_RNO.nextval -->
    <insert id="insertReply">
+   		<selectKey keyProperty="rno" resultType="int" order="BEFORE">
+			SELECT SEQ_RNO.nextval FROM DUAL
+		</selectKey>
       insert into tbl_reply (
          bno, replytext, replyer, regdate
       ) values (

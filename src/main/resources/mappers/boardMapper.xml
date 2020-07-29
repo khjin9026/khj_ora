@@ -27,16 +27,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			)
 		</if>
 	</sql>
+	<!-- mybatis 오라클용 -->
+	<!-- 속성중에 order는 insert 이전 이후 구분하는 역할  -->
 	<insert id="insertBoard">
-		insert into tbl_board (title,content,writer,regdate,view_count,reply_count) 
-		values (#{title},#{content},#{writer},now(),#{view_count},#{reply_count}) 
+		<selectKey keyProperty="bno" resultType="int" order="BEFORE">
+			SELECT SEQ_BNO.nextval FROM DUAL
+		</selectKey>
+		insert into tbl_board (bno,title,content,writer,regdate,view_count,reply_count) 
+		values (#{bno},#{title},#{content},#{writer},now(),#{view_count},#{reply_count}) 
 	</insert>
 	<select id="selectBoard" resultType="org.edu.vo.BoardVO">
-		SELECT * FROM tbl_board 
-		WHERE 1 = 1
-		<include refid="sqlWhere"></include>
-		ORDER BY bno DESC
-		LIMIT #{startNo}, #{perPageNum} 
+		<![CDATA[
+		SELECT T_Z. *
+		FROM
+		(
+		SELECT ROWNUM AS RNUM, T_A.*
+		FROM
+		    (SELECT * FROM TBL_BOARD
+		    WHERE 1 = 1 
+		]]>    
+		     <include refid="sqlWhere"></include>
+		     <![CDATA[
+		     ORDER BY BNO DESC
+		    ) T_A
+		WHERE ROWNUM <= (#{startNo}/#{perPageNum}+1) * #{perPageNum}
+		) T_Z
+	WHERE
+    	T_Z.RNUM > (#{startNo}/#{perPageNum}) * #{perPageNum}
+	]]>
 	</select>
 	<select id="countBno" resultType="int">
 		select count(*) from tbl_board
@@ -84,4 +102,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="updateAttach">
 	insert into tbl_attach(full_name, bno) values (#{fullname}, #{bno})
 	</insert>
+	<!-- 게시판과 연관된 댓글 삭제 -->
+	<delete id="deleteBoardReply">
+		delete from tbl_reply where bno = #{bno}
+	</delete>
 </mapper>

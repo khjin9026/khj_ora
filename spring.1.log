@@ -1,2 +1,4 @@
-2020-07-08 12:28:28,642  INFO [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory] Shutting down embedded database: url='jdbc:hsqldb:mem:dataSource'
-2020-07-08 12:28:28,642 DEBUG [org.springframework.jdbc.datasource.SimpleDriverDataSource] Creating new JDBC Driver Connection to [jdbc:hsqldb:mem:dataSource]
+2020-07-22 16:43:58,134  INFO [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@3fd7a715: startup date [Wed Jul 22 16:43:54 KST 2020]; root of context hierarchy
+2020-07-22 16:43:58,143 DEBUG [org.mybatis.spring.SqlSessionUtils] Creating a new SqlSession
+2020-07-22 16:43:58,150 DEBUG [org.mybatis.spring.SqlSessionUtils] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@462e5deb] was not registered for synchronization because synchronization is not active
+2020-07-22 16:43:58,150 DEBUG [org.mybatis.spring.SqlSessionUtils] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@462e5deb]

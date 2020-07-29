@@ -23,4 +23,5 @@ public interface IF_BoardDAO {
 	public void updateAttach(String fullName, Integer bno) throws Exception;
 	public int countBno(PageVO pageVO) throws Exception;
 	public void updateViewCount(Integer bno) throws Exception;
+	public void deleteBoardReply(Integer bno) throws Exception;
 }

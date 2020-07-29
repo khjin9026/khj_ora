@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.edu.dao.IF_BoardDAO;
+import org.edu.dao.IF_ReplyDAO;
 import org.edu.vo.BoardVO;
 import org.edu.vo.PageVO;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,7 @@ public class BoardServiceImpl implements IF_BoardService {
 	@Transactional
 	@Override
 	public void deleteBoard(Integer bno) throws Exception {
+		boardDAO.deleteBoardReply(bno); //DB에서 delete cascade로 알아서 지워주긴하나, 혹 오류날걸 방지해 안전하게 처리하기 위해 추가
 		boardDAO.deleteAttach(bno);
 		boardDAO.deleteBoard(bno);
 	}

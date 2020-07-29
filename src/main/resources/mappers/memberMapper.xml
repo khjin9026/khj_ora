@@ -34,11 +34,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<select id="selectMember" resultType="org.edu.vo.MemberVO">
 	<!-- CDATA=쿼리 문자열로 인식하게 하는 것 -> 인식이 안될때 사용 / 부등호가 없을땐 사용할 필요x --> 
-		select * from tbl_member
-		WHERE 1=1
-		<include refid="sqlWhere"></include>
-		ORDER BY reg_date DESC
-		LIMIT #{startNo}, #{perPageNum}  	  
+	<![CDATA[
+	SELECT TABLE_Z.*
+	FROM (
+    	SELECT ROWNUM AS RNUM, TABLE_A.*
+     	FROM 
+        	(SELECT * FROM TBL_MEMBER) TABLE_A
+    	WHERE ROWNUM <= (0/10+1) * 10
+    	) TABLE_Z
+    WHERE TABLE_Z.RNUM > (0/10) * 10  
+    ]]>
 	</select>
 	<select id="countUserId" resultType="int">
 		select count(*) from tbl_member WHERE 1=1
