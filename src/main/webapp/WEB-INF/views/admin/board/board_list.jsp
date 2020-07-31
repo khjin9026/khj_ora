@@ -44,12 +44,15 @@
 
 								<!-- SEARCH FORM -->
 								<form action="/admin/board/list" class="form-inline ml-3">
+										<select name="searchBoard" class="form-control">
+											<option value="">게시판 선택</option>
+											<option value="notice" <c:out value="${(session_bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
+											<option value="gallery" <c:out value="${(session_bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option>
+										</select>
 										<select name="searchType" class="form-control">
-											<option value="all">전체</option>
-											<option>option 2</option>
-											<option>option 3</option>
-											<option>option 4</option>
-											<option>option 5</option>
+											<option value="">전체</option>
+											<option>공지사항</option>
+											<option>갤러리</option>
 										</select>
 										<input type="text" name="searchKeyword" class="form-control" placeholder="">
 										<div class="button">
@@ -70,7 +73,8 @@
 											<table class="table table-hover text-nowrap">
 												<thead>
 													<tr>
-														<th>Bno</th>
+														<th>Type</th>
+														<th>Rnum</th>
 														<th>Title</th>
 														<th>Writer</th>
 														<th>Regdate</th>
@@ -80,7 +84,8 @@
 												<tbody>
 												<c:forEach items="${boardList}" var="boardVO" varStatus="status">
 													<tr>
-														<td>${boardVO.bno}</td>
+														<td>${boardVO.bod_type}</td>
+														<td>${boardVO.rnum}</td>
 														<td><a href="/admin/board/view?bno=${boardVO.bno}&page=${pageVO.page}">${boardVO.title}</a></td>
 														<td>${boardVO.writer}</td>
 														<td><span class="tag tag-success">

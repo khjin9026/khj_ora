@@ -10,11 +10,20 @@ public class PageVO {
 	private int startPage;
 	private boolean prev; //boolean형-> 참과 거짓을 나눠주는 것
 	private boolean next;
-	//검색용 변수 2개 추가
+	//검색용 변수 2개 +1 추가
 	private String searchType;
 	private String searchKeyword;
+	private String searchBoard;
 	
-	
+	//검색용 get-set
+	public String getSearchBoard() {
+		return searchBoard;
+	}
+
+	public void setSearchBoard(String searchBoard) {
+		this.searchBoard = searchBoard;
+	}
+
 	public String getSearchType() {
 		return searchType;
 	}

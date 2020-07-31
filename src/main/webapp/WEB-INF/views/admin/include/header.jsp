@@ -68,8 +68,8 @@ if('${msg}' !== ""){
 							class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block">User 02 <span
-							class="right badge badge-danger">online</span>
+						<a href="#" class="d-block">${session_username} 님
+						<span class="right badge badge-danger">online</span>
 						</a>
 
 					</div>
@@ -102,13 +102,14 @@ if('${msg}' !== ""){
 							<ul class="nav nav-treeview">
 								<li class="nav-item"><a href="/" class="nav-link">
 										<p>
-											사용자 홈 <i class="right fas fa-angle-left"></i>
+											사용자 홈 
 										</p>
 								</a></li>
 							</ul></li>
 
-						<li class="nav-item has-treeview menu-open"><a href="#"
-							class="nav-link active"> <i
+						<li class="nav-item has-treeview menu-open">
+						
+						<a href="#" class="nav-link active"> <i
 								class="nav-icon fas fa-tachometer-alt"></i>
 								<p>
 									Dash Board <i class="right fas fa-angle-left"></i>
@@ -120,10 +121,21 @@ if('${msg}' !== ""){
 										class="far fa-circle nav-icon"></i>
 										<p>회원관리</p>
 								</a></li>
-								<li class="nav-item"><a href="/admin/board/list" class="nav-link"> <i
+								<li class="nav-item"><a href="#" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
-										<p>게시판 관리</p>
-								</a></li>
+										<p>게시판 관리</p> <i class="right fas fa-angle-left"></i>
+								</a>
+								<ul class="nav nav-treeview">
+		                           <li class="nav-item"><a href="/admin/board/list?searchBoard=notice" class="nav-link"> <i
+		                                 class="far fa-circle nav-icon"></i>
+		                                 <p>공지사항</p>
+		                           </a></li>
+		                           <li class="nav-item"><a href="/admin/board/list?searchBoard=gallery" class="nav-link"> <i
+		                                 class="far fa-circle nav-icon"></i>
+		                                 <p>갤러리</p>
+		                           </a>
+                           		</ul>
+								</li>
 							</ul></li>
 
 					</ul>

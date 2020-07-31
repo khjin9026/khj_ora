@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.edu.service.IF_BoardService;
@@ -62,8 +63,18 @@ public class AdminController {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/admin/board/list", method = RequestMethod.GET)
-	public String boardList(@ModelAttribute("pageVO") PageVO pageVO, Locale locale, Model model) throws Exception {
+	public String boardList(@ModelAttribute("pageVO") PageVO pageVO, Locale locale, Model model, HttpServletRequest request) throws Exception {
 							//local -> 다국어 지원  model -> 데이터베이스 연동
+		//조건문 : 초기 메뉴 클릭시 매개변수로서 값이 있으면 /admin/board/list?searchBoard=notice 데이터 전송
+		HttpSession session = request.getSession();
+		if (pageVO.getSearchBoard() != null) {
+			//최초 session 생성
+			session.setAttribute("session_bod_type", pageVO.getSearchBoard()); //세션변수 생성
+		}else {
+			//일반링크 클릭시 /admin/board/view?page=2... 데이터 전송(값이 없기때문)
+			//만들어진 session 사용
+			pageVO.setSearchBoard((String) session.getAttribute("session_bod_type")); //String으로 형변환
+		}
 		//PageVO pageVO = new PageVO(); //매개변수로 받기전에 만든 테스트용 
 		if(pageVO.getPage() == null) { 
 			pageVO.setPage(1); //초기 page변수값 지정

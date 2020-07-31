@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    WHERE ROWNUM <= (#{pageVO.startNo}/#{pageVO.perPageNum}+1) * #{pageVO.perPageNum}
 		    ) T_Z
 		WHERE
-    		T_Z.RNUM > (#{pageVO.startNo}/#{pageVO.perPageNum}) * #{pageVO.perPageNum};
+    		T_Z.RNUM > (#{pageVO.startNo}/#{pageVO.perPageNum}) * #{pageVO.perPageNum}
    ]]>
    </select>
    <select id ="countRno" resultType="int">
@@ -41,15 +41,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT SEQ_RNO.nextval FROM DUAL
 		</selectKey>
       insert into tbl_reply (
-         bno, replytext, replyer, regdate
+         rno, bno, replytext, replyer, regdate
       ) values (
-         #{bno}, #{replytext}, #{replyer}, now() 
+        #{rno} ,#{bno}, #{replytext}, #{replyer}, sysdate 
       )
    </insert>
    <update id="updateReply">
       update tbl_reply set
       replytext = #{replytext},
-      update_date = now()
+      update_date = sysdate
       where rno = #{rno}
    </update>
    <delete id="deleteReply">

@@ -6,18 +6,8 @@
 
 	<!-- container -->
 	<div id="container">
-		<!-- location_area -->
-		<div class="location_area member">
-			<div class="box_inner">
-				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">MEMBER <span class="path">/</span> 공지사항</p>
-				<ul class="page_menu clear">
-					<li><a href="javascript:;" class="on">공지사항</a></li>
-				</ul>
-			</div>
-		</div>	
-		<!-- //location_area -->
-
+		<%@ include file="../include/container_header.jsp"%>
+		
 		<!-- bodytext_area -->
 		<div class="bodytext_area box_inner">
 			<!-- appForm -->
@@ -27,13 +17,20 @@
 					<p class="info_pilsoo pilsoo_item">필수입력</p>
 					<ul class="app_list">
 						<li class="clear">
+							<label for="title_lbl" class="tit_lbl pilsoo_item">게시판선택</label>
+							<div class="app_content">
+							<select name="bod_type" class="select_common">
+								<option value="${session_bod_type}">${session_bod_type}</option>
+							</select>
+							</div>
+						</li>
+						<li class="clear">
 							<label for="title_lbl" class="tit_lbl pilsoo_item">제목</label>
 							<div class="app_content"><input name="title" type="text" class="w100p" id="title_lbl" placeholder="제목을 입력해주세요" required /></div>
 						</li>
 						<li class="clear">
 							<label for="content_lbl" class="tit_lbl pilsoo_item">내용</label>
-							<div class="app_content"><textarea name="content" id="content_lbl" class="w100p" placeholder="간단한 상담 요청 사항을 남겨주시면 보다 상세한 상담이 가능합니다.
-전화 상담 희망시 기재 부탁드립니다." required></textarea></div>
+							<div class="app_content"><textarea name="content" id="content_lbl" class="w100p" placeholder="내용을 입력해주세요" required></textarea></div>
 						</li>
 						<li class="clear">
 							<label for="name_lbl" class="tit_lbl pilsoo_item">작성자명</label>

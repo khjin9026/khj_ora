@@ -3,7 +3,7 @@ package org.edu.vo;
 import java.util.Date;
 
 import org.hibernate.validator.constraints.NotBlank;
-
+//클래스 바로 안쪽에 있는 변수 -> 멤버변수
 public class BoardVO {
 	private Integer bno;
 	@NotBlank(message="게시물 제목은 필수 입력사항입니다")
@@ -15,7 +15,16 @@ public class BoardVO {
 	private Date update_date;
 	private int view_count;
 	private int reply_count;
+	private String bod_type;
+	private Integer rnum; //오라클전용 rownum 행번호 필드 get-set
 	
+	//데이터베이스용 get-set
+	public String getBod_type() {
+		return bod_type;
+	}
+	public void setBod_type(String bod_type) {
+		this.bod_type = bod_type;
+	}
 	private String[] files;//첨부파일용 변수 추가
 	
 	public Integer getBno() {
@@ -78,6 +87,12 @@ public class BoardVO {
 	}
 	public void setFiles(String[] files) {
 		this.files = files;
+	}
+	public Integer getRnum() {
+		return rnum;
+	}
+	public void setRnum(Integer rnum) {
+		this.rnum = rnum;
 	}
 	
 	

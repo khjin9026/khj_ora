@@ -70,9 +70,9 @@
 			<h2>OOOO OOOOO 스프링 <b>TOP 3</b></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
-					<c:forEach items="${boardList}" var="boardVO" varStatus="status">
+					<c:forEach items="${boardListGallery}" var="boardVO" varStatus="status">
 						<c:if test="${status.count <= 3}">
-					<li><a href="/board/view?bno=${boardVO.bno}">
+					<li><a href="/board/view?bno=${boardVO.bno}&page=1&searchBoard=gallery">
 							<!-- 첨부파일이 있을 때 -->
 							<c:if test="${boardVO.files[0] != null }">
 								<c:set var="extName" value="${fn:split(boardVO.files[0],'.')}" />
@@ -114,10 +114,10 @@
 					<a href="/resources/home/javascript:;">전화 상담 신청</a>
 				</p>
 				<div class="bbs_line">
-					<h3><a href="/board/list">NOTICE</a></h3>
+					<h3><a href="/board/list?searchBoard=notice">NOTICE</a></h3>
 					<ul class="notice_recent">
-					<c:forEach items="${boardList}" var="boardVO" varStatus="status">
-						<li><a href="/board/view?bno=${boardVO.bno}">${boardVO.title}</a></li>
+					<c:forEach items="${boardListNotice}" var="boardVO" varStatus="status">
+						<li><a href="/board/view?bno=${boardVO.bno}&page=1&searchBoard=notice">${boardVO.title}</a></li>
 					</c:forEach>
 					</ul>
 				</div>

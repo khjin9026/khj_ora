@@ -6,34 +6,24 @@
 
 <!-- container -->
 <div id="container">
-	<!-- location_area -->
-	<div class="location_area customer">
-		<div class="box_inner">
-			<h2 class="tit_page">
-				스프링 <span class="in">in</span> 자바
-			</h2>
-			<p class="location">
-				고객센터 <span class="path">/</span> 공지사항
-			</p>
-			<ul class="page_menu clear">
-				<li><a href="#" class="on">공지사항</a></li>
-				<li><a href="#">문의하기</a></li>
-			</ul>
-		</div>
-	</div>
-	<!-- //location_area -->
+	<%@ include file="../include/container_header.jsp"%>
 
 	<!-- bodytext_area -->
 	<div class="bodytext_area box_inner">
-		<form action="/board/list" class="minisrch_form">
-			<fieldset>
-				<legend>검색</legend>
-				<input name="searchType" type="hidden" value="all">
-				<input name="searchKeyword" type="text" class="tbox" title="검색어를 입력해주세요"
-					placeholder="검색어를 입력해주세요"> 
-					<button type="submit" class="btn_srch">검색</button>
-			</fieldset>
-		</form>
+	<form action="/board/list" class="minisrch_form">
+		<fieldset style = "margin-top: 20px;">
+			<legend>검색</legend>
+			<select name="searchBoard" class="select_common">
+			<option value="">게시판 선택</option>
+			<option value="notice" <c:out value="${(session_bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
+			<option value="gallery" <c:out value="${(session_bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option>
+		</select>
+			<input name="searchType" type="hidden" value="all">
+			<input name="searchKeyword" type="text" class="tbox" title="검색어를 입력해주세요"
+				placeholder="검색어를 입력해주세요"> 
+				<button type="submit" class="btn_srch">검색</button>
+	</fieldset>
+	</form>
 		<table class="bbsListTbl" summary="번호,제목,조회수,작성일 등을 제공하는 표">
 			<caption class="hdd">공지사항 목록</caption>
 			<thead>
@@ -42,16 +32,18 @@
 					<th scope="col">제목</th>
 					<th scope="col">조회수</th>
 					<th scope="col">작성일</th>
+					<th scope="col">게시판</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${boardList}" var="boardVO" varStatus="status">
 					<tr>
-						<td>${boardVO.bno}</td>
+						<td>${boardVO.rnum}</td>
 						<td><a href="/board/view?bno=${boardVO.bno}&page=${pageVO.page}">${boardVO.title}</a></td>
 						<td><span class="badge bg-danger">${boardVO.view_count}</span></td>
 						<td><span class="tag tag-success">
 						<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+						<td>${boardVO.bod_type}</td>
 						</span></td>
 					</tr>
 				</c:forEach>

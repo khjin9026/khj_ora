@@ -73,7 +73,7 @@
 										<div class="form-group">
 											<label>point</label> 
 											<input name="point" type="text" class="form-control"
-												placeholder="0">
+												value="0">
 										</div>
 									</div>
 									<div class="form-group">

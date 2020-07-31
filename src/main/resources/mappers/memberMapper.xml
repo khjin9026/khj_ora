@@ -19,30 +19,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<sql id="sqlWhere">
 		<if test="searchType !=null">
 		AND (
-		user_name LIKE CONCAT('%',#{searchKeyword},'%')
+		user_name LIKE '%'||#{searchKeyword}||'%'
 		OR
-		user_id LIKE CONCAT('%',#{searchKeyword},'%')
+		user_id LIKE '%'||#{searchKeyword}||'%'
 		OR
-		email LIKE CONCAT('%',#{searchKeyword},'%')
+		email LIKE '%'||#{searchKeyword}||'%'
 		)
 		</if>
 	</sql>
 
 	<insert id="insertMember">
 		insert into tbl_member (user_id,user_pw,user_name,email,point,enabled,levels,reg_date) 
-		values (#{user_id},#{user_pw},#{user_name},#{email},#{point},#{enabled},#{levels},now()) 
+		values (#{user_id},#{user_pw},#{user_name},#{email},#{point},#{enabled},#{levels},sysdate) 
 	</insert>
 	<select id="selectMember" resultType="org.edu.vo.MemberVO">
 	<!-- CDATA=쿼리 문자열로 인식하게 하는 것 -> 인식이 안될때 사용 / 부등호가 없을땐 사용할 필요x --> 
 	<![CDATA[
-	SELECT TABLE_Z.*
+	SELECT T_Z.*
 	FROM (
-    	SELECT ROWNUM AS RNUM, TABLE_A.*
+    	SELECT ROWNUM AS RNUM, T_A.*
      	FROM 
-        	(SELECT * FROM TBL_MEMBER) TABLE_A
-    	WHERE ROWNUM <= (0/10+1) * 10
-    	) TABLE_Z
-    WHERE TABLE_Z.RNUM > (0/10) * 10  
+        	(SELECT * FROM TBL_MEMBER
+             WHERE 1 = 1
+     ]]>
+     		<include refid="sqlWhere"></include>
+     <![CDATA[		
+             ORDER BY REG_DATE DESC) T_A
+    	WHERE ROWNUM <= (#{startNo}/#{perPageNum}+1) * #{perPageNum}
+    	) T_Z
+    WHERE T_Z.RNUM > (#{startNo}/#{perPageNum}) * #{perPageNum} 
     ]]>
 	</select>
 	<select id="countUserId" resultType="int">
@@ -59,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		point = #{point},
 		enabled = #{enabled},
 		levels = #{levels},
-		update_date = now() 
+		update_date = sysdate 
 		where user_id = #{user_id}
 	</update>
 	<delete id="deleteMember">

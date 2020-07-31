@@ -25,7 +25,7 @@ public class BoardServiceImpl implements IF_BoardService {
 		String[] files = boardVO.getFiles();
 		if(files == null) { return; }
 		for(String fileName : files) {
-			boardDAO.insertAttach(fileName);
+			boardDAO.insertAttach(fileName, boardDAO.selectTopBno());
 		}
 	}
 

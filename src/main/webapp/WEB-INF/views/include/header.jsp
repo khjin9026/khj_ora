@@ -21,7 +21,7 @@
 <![endif]-->
 <script>
 if('${msg}' != ""){
-	alert("${msg}에 성공하였습니다.!");
+	alert("${msg}에 성공하였습니다!");
 }
 </script>
 </head>
@@ -71,10 +71,13 @@ if('${msg}' != ""){
                             </ul>
                         </div>
 					</li>
-					<li><a href="#" class="openAll2">고객센터</a>
+					<li><a href="/board/list?searchBoard=notice" class="openAll2">게시판</a>
 				        <div class="gnb_depth gnb_depth2_2">
                             <ul class="submenu_list">
-                                <li><a href="/board/list">공지사항</a></li>
+                                <li><a href="/board/list?searchBoard=notice">공지사항</a></li>
+                            </ul>
+                            <ul class="submenu_list">
+                                <li><a href="/board/list?searchBoard=gallery">갤러리</a></li>
                             </ul>
                         </div>
 					</li>
@@ -86,4 +89,3 @@ if('${msg}' != ""){
 			<!-- //header_cont -->
 		</div>
 	</header>
-	
