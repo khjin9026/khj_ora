@@ -45,6 +45,7 @@
 							</div>
 							<!-- /.card-header -->
 							<div class="card-body">
+							
 								<form role="form" action="/admin/board/update" method="post" encType="multipart/form-data">
 									<div class="row">
 									
@@ -54,8 +55,11 @@
 												<label>게시판선택</label> 
 												<select name="bod_type" class="form-control" required>
 													<option value="">게시판 선택</option>
-													<option value="notice" <c:out value="${(boardVO.bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
-													<option value="gallery" <c:out value="${(boardVO.bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option>
+													<c:forEach items="${boardTypeMenu}" var="boardTypeMenu" >
+														<option value="${boardTypeMenu.bod_type}" <c:out value="${(boardVO.bod_type eq boardTypeMenu.bod_type)?('selected'):('')}"/>>${boardTypeMenu.bod_name}</option>
+													</c:forEach>
+													<%-- <option value="notice" <c:out value="${(boardVO.bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
+													<option value="gallery" <c:out value="${(boardVO.bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option> --%>
 												</select>
 											</div>
 										</div>
@@ -107,11 +111,6 @@
 									<!-- /.card-body -->
 									<div class="box-footer" style="padding: 10px;">
 
-										<div>
-											<hr>
-										</div>
-										<ul class="mailbox-attachments clearfix uploadedList">
-										</ul>
 										<!-- submit -> form안의 내용을 입력해주는 역할 so, form태그 안쪽에 있어야 작동 됨! -->
 										<input type="hidden" name="bno" value="${boardVO.bno}">
 										<input type="hidden" name="page" value="${pageVO.page}">
@@ -119,6 +118,7 @@
 										<a href="/admin/board/list?page=${pageVO.page}" class="btn btn-primary">전체목록</a>
 									</div>
 								</form>
+							
 							</div>
 
 

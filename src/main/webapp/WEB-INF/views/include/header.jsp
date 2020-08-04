@@ -21,7 +21,7 @@
 <![endif]-->
 <script>
 if('${msg}' != ""){
-	alert("${msg}에 성공하였습니다!");
+	alert("${msg} 에 성공하였습니다!");
 }
 </script>
 </head>
@@ -39,14 +39,12 @@ if('${msg}' != ""){
 			<!-- header_cont -->
 			<div class="header_cont">
 				<ul class="util clear">
-				<!-- when은 choose문에서만 사용 가능 // 인증체크 -->
-				<c:choose>   
+				<c:choose>
 					<c:when test="${session_enabled eq 'true' }">
-						<li><span style="color:white">${session_username}님[${session_userid}] 환영합니다.!</span>
+						<li><span style="color:white">${session_username}님[${session_userid}] 환영합니다!</span>
 						</li>
 						<li><a href="/logout">로그아웃</a>
 						</li>
-						 <!-- if는 단독사용 가능 // 권한체크 -->
 						<c:if test="${session_levels eq 'ROLE_ADMIN'}">
 							<li><a href="/admin">관리자</a>
 							</li>
@@ -71,13 +69,14 @@ if('${msg}' != ""){
                             </ul>
                         </div>
 					</li>
-					<li><a href="/board/list?searchBoard=notice" class="openAll2">게시판</a>
+					<li><a href="/board/list?searchBoard=notice" class="openAll2">고객센터</a>
 				        <div class="gnb_depth gnb_depth2_2">
                             <ul class="submenu_list">
-                                <li><a href="/board/list?searchBoard=notice">공지사항</a></li>
-                            </ul>
-                            <ul class="submenu_list">
-                                <li><a href="/board/list?searchBoard=gallery">갤러리</a></li>
+                            	<c:forEach items="${boardTypeMenu}" var="boardTypeMenu">
+                            	<li><a href="/board/list?searchBoard=${boardTypeMenu.bod_type}">${boardTypeMenu.bod_name}</a></li>
+                            	</c:forEach>
+                                <!-- <li><a href="/board/list?searchBoard=notice">공지사항</a></li>
+                                <li><a href="/board/list?searchBoard=gallery">갤러리</a></li> -->
                             </ul>
                         </div>
 					</li>
@@ -89,3 +88,5 @@ if('${msg}' != ""){
 			<!-- //header_cont -->
 		</div>
 	</header>
+	
+	

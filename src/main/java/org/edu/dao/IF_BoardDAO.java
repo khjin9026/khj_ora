@@ -2,6 +2,7 @@ package org.edu.dao;
 
 import java.util.List;
 
+import org.edu.vo.BoardTypeVO;
 import org.edu.vo.BoardVO;
 import org.edu.vo.PageVO;
 
@@ -12,6 +13,13 @@ import org.edu.vo.PageVO;
 // delete는 특정 id만 삭제해야하기 때문에 use_id로 지정
 
 public interface IF_BoardDAO {
+	public BoardTypeVO viewBoardType(String bod_type) throws Exception;
+	public void deleteBoardType(String bod_type) throws Exception;
+	public void updateBoardType(BoardTypeVO boardTypeVO) throws Exception;
+	public void insertBoardType(BoardTypeVO boardTypeVO) throws Exception;
+	public List<BoardTypeVO> selectBoardType() throws Exception;
+	public int selectTopBno() throws Exception;
+	public void deleteBoardReply(Integer bno) throws Exception;
 	public void insertBoard(BoardVO boardVO) throws Exception;
 	public List<BoardVO> selectBoard(PageVO pageVO) throws Exception;
 	public void updateBoard(BoardVO boardVO) throws Exception;
@@ -23,6 +31,4 @@ public interface IF_BoardDAO {
 	public void updateAttach(String fullName, Integer bno) throws Exception;
 	public int countBno(PageVO pageVO) throws Exception;
 	public void updateViewCount(Integer bno) throws Exception;
-	public void deleteBoardReply(Integer bno) throws Exception;
-	public int selectTopBno() throws Exception;
 }

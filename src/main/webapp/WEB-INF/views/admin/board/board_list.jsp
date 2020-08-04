@@ -46,8 +46,12 @@
 								<form action="/admin/board/list" class="form-inline ml-3">
 										<select name="searchBoard" class="form-control">
 											<option value="">게시판 선택</option>
-											<option value="notice" <c:out value="${(session_bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
-											<option value="gallery" <c:out value="${(session_bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option>
+											<!-- items="자바변수" var="내가 만든 변수"-->
+											<c:forEach items="${boardTypeMenu}" var="boardTypeMenu" >
+											<option value="${boardTypeMenu.bod_type}" <c:out value="${(session_bod_type eq boardTypeMenu.bod_type)?('selected'):('')}"/>>${boardTypeMenu.bod_name}</option>
+											</c:forEach>
+											<%-- <option value="notice" <c:out value="${(session_bod_type eq 'notice')?('selected'):('')}"/>>공지사항</option>
+											<option value="gallery" <c:out value="${(session_bod_type eq 'gallery')?('selected'):('')}"/>>갤러리</option> --%>
 										</select>
 										<select name="searchType" class="form-control">
 											<option value="">전체</option>
