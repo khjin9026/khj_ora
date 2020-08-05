@@ -47,11 +47,44 @@ public class AdminController {
 	@Inject
 	private FileDataUtil fileDataUtil;
 	
+	
+	/**
+	 * 회원 아이디체크 RestAPI입니다.
+	 * @ResponseBody 사용
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/member/idcheck", method = RequestMethod.GET)
+	@ResponseBody //restAPI용 어노테이션, 데이터에 응답하기위해사용
+	public int idCheck(@RequestParam("user_id") String user_id) throws Exception {
+		MemberVO memberVO = memberService.viewMember(user_id);
+		int check = 0; //쿼리 결과값이 존재하는지 체크하는 변수
+		if(memberVO!=null) {
+			check = 1;
+		}
+		return check;
+	}
+	
+	/**
+	 * 게시판 아이디체크 RestAPI입니다.
+	 * @ResponseBody 사용
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/bodtype_check", method = RequestMethod.GET)
+	@ResponseBody //restAPI용 어노테이션, 데이터에 응답하기위해사용
+	public int bodTypeCheck(@RequestParam("bod_type") String bod_type, Locale locale, Model model) throws Exception {
+		BoardTypeVO boardTypeVO = boardService.viewBoardType(bod_type);
+		int check = 0; //쿼리 결과값이 존재하는지 체크하는 변수
+		if(boardTypeVO!=null) {
+			check = 1;
+		}
+		return check;
+	}
+	
 	/**
 	 * 게시판생성 Insert(폼)입니다.
 	 * @throws Exception 
 	 */
-	//springsecurity에서 'write'에 권한 부여를 해줬기 때문에 맞춰줘야함 아닐시 회원이 아니여도 그냥 생성됨
+	//spring security에서 'write'에 권한 부여를 해줬기 때문에 맞춰줘야함, 아닐시 회원이 아니여도 그냥 생성됨
 	@RequestMapping(value = "/bodtype/write", method = RequestMethod.GET)
 	public String bodTypeInsert(Locale locale, Model model) throws Exception {
 		
@@ -289,6 +322,7 @@ public class AdminController {
 		model.addAttribute("memberVO", memberVO);
 		return "admin/member/member_view";
 	}
+	
 	
 	/**
 	 * 회원관리 > 등록 입니다.

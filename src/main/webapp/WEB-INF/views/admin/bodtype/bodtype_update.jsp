@@ -40,7 +40,7 @@
               <!-- /.card-header -->
               <div class="card-body">
               
-				<form role="form" action="/admin/bodtype/update" method="post">
+				<form id="form_bodtype" role="form" action="/admin/bodtype/update" method="post">
 					<div class="row">
 					
 						<div class="col-sm-12">
@@ -76,6 +76,7 @@
 				<div class="box-footer">
 					<!-- submit -> form안의 내용을 입력해주는 역할 so, form태그 안쪽에 있어야 작동 됨! -->
 					<button type="submit" class="btn btn-warning">완료</button>
+					<a href="#" id="btn_delete" class="btn btn-danger">삭제</a>
 					<a href="/admin/bodtype/list" class="btn btn-primary">전체목록</a>
 				</div>
 				
@@ -87,4 +88,15 @@
  	</div>
     </div>
     <!-- ./Content Wrapper. Contains page content -->
+    <script>
+    //제이쿼리 시작 -> function(){}
+    $(document).ready(function(){ //call back함수
+    	$("#btn_delete").click(function(){
+    		if(confirm("정말로 삭제하겠습니까?")){
+    			$("#form_bodtype").attr("action","/admin/bodtype/delete");
+        		$("#form_bodtype").submit(); //위 쿼리 없이 실행하면 원래 action그대로 update가 됨
+    		}
+    	});
+    });
+    </script>
 <%@ include file="../include/footer.jsp" %> 

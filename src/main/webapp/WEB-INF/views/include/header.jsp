@@ -21,7 +21,7 @@
 <![endif]-->
 <script>
 if('${msg}' != ""){
-	alert("${msg} 에 성공하였습니다!");
+	alert("${msg}에 성공하였습니다!");
 }
 </script>
 </head>
